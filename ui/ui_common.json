@@ -1,0 +1,487 @@
+/*File modified by @Andromedarius.
+//(c) Don't use any code design without permission!*/
+{
+  "flying_item_renderer": {
+    "property_bag": { "#flying_item_renderer": false }
+  },
+
+  "item_renderer": {
+    "type": "panel",
+    "controls": [
+      { "default_item_renderer@common.default_item_renderer": {} },
+      {
+        "enchanted_book_custom_renderer@common.enchanted_book_custom_renderer": {}
+      }
+    ],
+    "bindings": []
+  },
+
+  "default_item_renderer": {
+    "type": "custom",
+    "renderer": "inventory_item_renderer",
+    "layer": 0,
+    "size": "$item_renderer_size",
+    "$item_renderer_binding_condition|default": "none",
+    "bindings": [
+      {
+        "binding_type": "collection_details",
+        "binding_collection_name": "$item_collection_name"
+      },
+      {
+        "binding_name": "#item_id_aux",
+        "binding_type": "collection",
+        "binding_collection_name": "$item_collection_name",
+        "binding_condition": "$item_renderer_binding_condition"
+      },
+      {
+        "binding_name": "#charged_item",
+        "binding_type": "collection",
+        "binding_collection_name": "$item_collection_name",
+        "binding_condition": "$item_renderer_binding_condition"
+      },
+      {
+        "binding_name": "#item_custom_color",
+        "binding_type": "collection",
+        "binding_collection_name": "$item_collection_name",
+        "binding_condition": "$item_renderer_binding_condition"
+      },
+      {
+        "binding_name": "#item_pickup_time",
+        "binding_type": "collection",
+        "binding_collection_name": "$item_collection_name",
+        "binding_condition": "$item_renderer_binding_condition"
+      },
+      {
+        "binding_name": "#show_item_pickup",
+        "binding_type": "collection",
+        "binding_collection_name": "$item_collection_name",
+        "binding_condition": "$item_renderer_binding_condition"
+      },
+      {
+        "binding_name": "#armor_trim_material",
+        "binding_type": "collection",
+        "binding_collection_name": "$item_collection_name",
+        "binding_condition": "$item_renderer_binding_condition"
+      },
+      {
+        "binding_name": "#banner_patterns",
+        "binding_condition": "visible",
+        "binding_type": "collection",
+        "binding_collection_name": "$item_collection_name"
+      },
+      {
+        "binding_name": "#banner_colors",
+        "binding_condition": "visible",
+        "binding_type": "collection",
+        "binding_collection_name": "$item_collection_name"
+      },
+      {
+        "binding_name": "#banner_type",
+        "binding_condition": "visible",
+        "binding_type": "collection",
+        "binding_collection_name": "$item_collection_name"
+      },
+      {
+        "binding_name": "#decorated_pot_sherds",
+        "binding_condition": "visible",
+        "binding_type": "collection",
+        "binding_collection_name": "$item_collection_name"
+      },
+      {
+        "binding_type": "collection",
+        "binding_name": "#show_item",
+        "binding_name_override": "#visible",
+        "binding_collection_name": "$item_collection_name",
+        "binding_condition": "$item_renderer_binding_condition"
+      },
+      {
+        "binding_name": "#inactive_item",
+        "binding_type": "collection",
+        "binding_collection_name": "$item_collection_name",
+        "binding_name_override": "#disabled_filter_visible",
+        "binding_condition": "$item_renderer_binding_condition"
+      },
+      {
+        "binding_name": "#shield_is_active",
+        "binding_type": "collection",
+        "binding_collection_name": "$item_collection_name"
+      },
+      {
+        "binding_name": "#shield_base_color",
+        "binding_type": "collection",
+        "binding_collection_name": "$item_collection_name"
+      },
+      {
+        "binding_name": "#shield_base_color_hovered",
+        "binding_type": "collection",
+        "binding_collection_name": "$item_collection_name"
+      },
+      {
+        "binding_name": "#item_lodestone_tracking_handle",
+        "binding_condition": "visible",
+        "binding_type": "collection",
+        "binding_collection_name": "$item_collection_name"
+      },
+      {
+        "binding_name": "#group_item_group_name",
+        "binding_condition": "visible",
+        "binding_type": "collection",
+        "binding_collection_name": "$item_collection_name"
+      },
+      {
+        "binding_name": "#hover_text",
+        "binding_type": "collection",
+        "binding_collection_name": "$item_collection_name"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "((#hover_text-'Enchanted Book')=#hover_text)",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "inventory_selected_icon": {
+    "type": "panel",
+    "controls": [
+      {
+        "default_item_renderer@common.default_item_renderer": {
+          "bindings": [
+            {
+              "binding_name": "#inventory_selected_item",
+              "binding_name_override": "#item_id_aux",
+              "binding_condition": "always_when_visible"
+            },
+            {
+              "binding_name": "#inventory_selected_item_charged_item",
+              "binding_name_override": "#charged_item",
+              "binding_condition": "always_when_visible"
+            },
+            {
+              "binding_name": "#inventory_selected_item_color",
+              "binding_name_override": "#item_custom_color",
+              "binding_condition": "always_when_visible"
+            },
+            {
+              "binding_name": "#inventory_selected_armor_trim_material",
+              "binding_name_override": "#armor_trim_material",
+              "binding_condition": "always_when_visible"
+            },
+            {
+              "binding_name": "#inventory_selected_banner_patterns",
+              "binding_name_override": "#banner_patterns",
+              "binding_condition": "always_when_visible"
+            },
+            {
+              "binding_name": "#shield_base_color_hovered",
+              "binding_name_override": "#shield_base_color",
+              "binding_condition": "always_when_visible"
+            },
+            {
+              "binding_name": "#inventory_selected_banner_colors",
+              "binding_name_override": "#banner_colors",
+              "binding_condition": "always_when_visible"
+            },
+            {
+              "binding_name": "#inventory_selected_banner_type",
+              "binding_name_override": "#banner_type",
+              "binding_condition": "always_when_visible"
+            },
+            {
+              "binding_name": "#inventory_selected_decorated_pot_sherds",
+              "binding_name_override": "#decorated_pot_sherds",
+              "binding_condition": "always_when_visible"
+            },
+            {
+              "binding_name": "#hover_text",
+              "binding_type": "collection",
+              "binding_collection_name": "$item_collection_name"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "((#hover_text-'Enchanted Book')=#hover_text)",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "enchanted_book_custom_renderer@common.enchanted_book_custom_renderer": {}
+      }
+    ]
+  },
+
+  "enchanted_book_custom_renderer": {
+    "$common_inv|default": true,
+    "$detect_binding|default": "#hover_text",
+    "$collection_type|default": "collection",
+    "type": "panel",
+    "ignored": "$ignore_enchanted_book_custom_renderer",
+    "size": "$item_renderer_size",
+    "offset": "$item_renderer_offset",
+    "anchor_to": "center",
+    "anchor_from": "center",
+    "layer": 0,
+    "controls": [
+      {
+        "unbreaking@common.custom_renderer_img": {
+          "$det": "Unbreaki",
+          "$tex": "unbreaking"
+        }
+      },
+      {
+        "fire_protection@common.custom_renderer_img": {
+          "$det": "Fire Pro",
+          "$tex": "fire_protection"
+        }
+      },
+      {
+        "protection@common.custom_renderer_img": {
+          "$det": "Protecti",
+          "$tex": "protection"
+        }
+      },
+      {
+        "feather_falling@common.custom_renderer_img": {
+          "$det": "Feather",
+          "$tex": "feather_falling"
+        }
+      },
+      {
+        "blast_protection@common.custom_renderer_img": {
+          "$det": "Blast Pr",
+          "$tex": "blast_protection"
+        }
+      },
+      {
+        "projectile_protection@common.custom_renderer_img": {
+          "$det": "Projecti",
+          "$tex": "projectile_protection"
+        }
+      },
+      {
+        "thorns@common.custom_renderer_img": {
+          "$det": "Thorns",
+          "$tex": "thorns"
+        }
+      },
+      {
+        "respiration@common.custom_renderer_img": {
+          "$det": "Respirat",
+          "$tex": "respiration"
+        }
+      },
+      {
+        "depth_strider@common.custom_renderer_img": {
+          "$det": "Depth St",
+          "$tex": "depth_strider"
+        }
+      },
+      {
+        "aqua_affinity@common.custom_renderer_img": {
+          "$det": "Aqua Aff",
+          "$tex": "aqua_affinity"
+        }
+      },
+      {
+        "sharpness@common.custom_renderer_img": {
+          "$det": "Sharpnes",
+          "$tex": "sharpness"
+        }
+      },
+      {
+        "smite@common.custom_renderer_img": {
+          "$det": "Smite",
+          "$tex": "smite"
+        }
+      },
+      {
+        "bane_of_arthropods@common.custom_renderer_img": {
+          "$det": "Bane of",
+          "$tex": "bane_of_arthropods"
+        }
+      },
+      {
+        "knockback@common.custom_renderer_img": {
+          "$det": "Knockbac",
+          "$tex": "knockback"
+        }
+      },
+      {
+        "fire_aspect@common.custom_renderer_img": {
+          "$det": "Fire Asp",
+          "$tex": "fire_aspect"
+        }
+      },
+      {
+        "looting@common.custom_renderer_img": {
+          "$det": "Looting",
+          "$tex": "looting"
+        }
+      },
+      {
+        "efficiency@common.custom_renderer_img": {
+          "$det": "Efficien",
+          "$tex": "efficiency"
+        }
+      },
+      {
+        "silk_touch@common.custom_renderer_img": {
+          "$det": "Silk Tou",
+          "$tex": "silk_touch"
+        }
+      },
+      {
+        "fortune@common.custom_renderer_img": {
+          "$det": "Fortune",
+          "$tex": "fortune"
+        }
+      },
+      {
+        "power@common.custom_renderer_img": {
+          "$det": "Power",
+          "$tex": "power"
+        }
+      },
+      {
+        "punch@common.custom_renderer_img": {
+          "$det": "Punch",
+          "$tex": "punch"
+        }
+      },
+      {
+        "flame@common.custom_renderer_img": {
+          "$det": "Flame",
+          "$tex": "flame"
+        }
+      },
+      {
+        "infinity@common.custom_renderer_img": {
+          "$det": "Infinity",
+          "$tex": "infinity"
+        }
+      },
+      {
+        "luck_of_the_sea@common.custom_renderer_img": {
+          "$det": "Luck of",
+          "$tex": "luck_of_the_sea"
+        }
+      },
+      {
+        "lure@common.custom_renderer_img": {
+          "$det": "Lure",
+          "$tex": "lure"
+        }
+      },
+      {
+        "frost_walker@common.custom_renderer_img": {
+          "$det": "Frost Wa",
+          "$tex": "frost_walker"
+        }
+      },
+      {
+        "mending@common.custom_renderer_img": {
+          "$det": "Mending",
+          "$tex": "mending"
+        }
+      },
+      {
+        "curse_of_binding_or_vanishing@common.custom_renderer_img": {
+          "$det": "Curse of",
+          "$tex": "curse_of_binding"
+        }
+      },
+      {
+        "impaling@common.custom_renderer_img": {
+          "$det": "Impaling",
+          "$tex": "impaling"
+        }
+      },
+      {
+        "riptide@common.custom_renderer_img": {
+          "$det": "Riptide",
+          "$tex": "riptide"
+        }
+      },
+      {
+        "loyalty@common.custom_renderer_img": {
+          "$det": "Loyalty",
+          "$tex": "loyalty"
+        }
+      },
+      {
+        "channeling@common.custom_renderer_img": {
+          "$det": "Channeli",
+          "$tex": "channeling"
+        }
+      },
+      {
+        "multishot@common.custom_renderer_img": {
+          "$det": "Multisho",
+          "$tex": "multishot"
+        }
+      },
+      {
+        "piercing@common.custom_renderer_img": {
+          "$det": "Piercing",
+          "$tex": "piercing"
+        }
+      },
+      {
+        "quick_charge@common.custom_renderer_img": {
+          "$det": "Quick Ch",
+          "$tex": "quick_charge"
+        }
+      },
+      {
+        "soul_speed@common.custom_renderer_img": {
+          "$det": "Soul Spe",
+          "$tex": "soul_speed"
+        }
+      },
+      {
+        "swift_sneak@common.custom_renderer_img": {
+          "$det": "Swift Sn",
+          "$tex": "swift_sneak"
+        }
+      }
+    ],
+    "bindings": [
+      { "ignored": "$common_inv", "binding_type": "collection_details" },
+      {
+        "binding_name": "$detect_binding",
+        "binding_type": "$collection_type",
+        "binding_collection_name": "$item_collection_name"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not(($detect_binding-'Enchanted Book')=$detect_binding))",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "custom_renderer_img": {
+    "type": "image",
+    "size": ["100%", "100%"],
+    "texture": "('textures/renderer/enchanted_book/'+$tex)",
+    "bindings": [
+      { "ignored": "$common_inv", "binding_type": "collection_details" },
+      {
+        "binding_name": "$detect_binding",
+        "binding_type": "$collection_type",
+        "binding_collection_name": "$item_collection_name"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "('%.25s' * ($detect_binding-'Items'-'\n'-'§e'-'§r'-'§9'))",
+        "target_property_name": "#filt"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not((#filt-$det)=#filt))",
+        "target_property_name": "#visible"
+      }
+    ]
+  }
+}

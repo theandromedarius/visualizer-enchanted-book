@@ -1,0 +1,24 @@
+/*File modified by @Andromedarius.
+//(c) Don't use any code design without permission!*/
+{
+  "auto_complete_panel_contents_with_item/auto_complete_item_renderer": {
+    "type": "panel",
+    "bindings": [],
+    "controls": [
+      {
+        "default_item_renderer@common.default_item_renderer": {
+          "size": [9, 9],
+          "layer": 1,
+          "bindings": [
+            {
+              "binding_name": "#auto_complete_item",
+              "binding_type": "collection",
+              "binding_name_override": "#item_id_aux",
+              "binding_collection_name": "auto_complete"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

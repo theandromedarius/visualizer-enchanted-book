@@ -1,0 +1,17 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Visualize Enchanted Book",
+    "description": "§6Original By xalixilax\n§7Bedrock Version By @Andromedarius\n§fSupported Language English Only",
+    "uuid": "af37f1a3-2653-4a87-b716-8c39a4bf8fb4",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 13, 0]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "eac14f8e-f344-4e13-86c0-df40f9374aad",
+      "version": [1, 0, 0]
+    }
+  ]
+}

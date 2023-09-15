@@ -1,0 +1,45 @@
+/*File modified by @Andromedarius.
+//(c) Don't use any code design without permission!*/
+{
+  "trade_item_2@trade2.single_item_grid": {
+    "$ignore_enchanted_book_custom_renderer": true
+  },
+  "single_item_grid/item_with_count/item_renderer": {
+    "type": "panel",
+    "$common_inv": false,
+    "$collection_type": "",
+    "$item_collection_name": "sell_item",
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": [
+          {
+            "default_item_renderer@common.default_item_renderer": {
+              "size": "$icon_size",
+              "layer": 1,
+              "bindings": [
+                { "binding_type": "collection_details" },
+                { "binding_name": "#item_id_aux" },
+                { "binding_name": "#item_custom_color" },
+                { "binding_name": "#item_pickup_time" },
+                { "binding_name": "#banner_patterns" },
+                { "binding_name": "#banner_colors" },
+                { "binding_name": "#banner_type" },
+                { "binding_name": "#hover_text" },
+                {
+                  "binding_type": "view",
+                  "source_property_name": "((#hover_text-'Enchanted Book')=#hover_text)",
+                  "target_property_name": "#visible"
+                }
+              ]
+            }
+          },
+          {
+            "enchanted_book_custom_renderer@common.enchanted_book_custom_renderer": {}
+          }
+        ]
+      }
+    ]
+  }
+}
