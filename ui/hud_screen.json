@@ -1,40 +1,84 @@
 /*File modified by @Andromedarius.
 //(c) Don't use any code design without permission!*/
 {
-  "root_panel": {
-    "modifications": [
+  "hud_screen": {
+    "is_showing_menu": false,
+    "should_steal_mouse": true,
+    "low_frequency_rendering": true,
+    "absorbs_input": false,
+    "send_telemetry": false
+  },
+  "gui_hotbar_grid_item/hotbar_parent": {
+    "controls": [
       {
-        "array_name": "controls",
-        "operation": "insert_front",
-        "value": {
-          "main_hand_items": {
-            "type": "panel",
-            "size": [18, 18],
-            "offset": [-4, -4],
-            "anchor_from": "bottom_right",
-            "anchor_to": "bottom_right",
-            "$hotbar_collection_name": "hotbar_items",
-            "collection_name": "$hotbar_collection_name",
-            "$item_renderer_size": [20, 20],
-            "$ignore_enchanted_book_custom_renderer": false,
-            "controls": [
-              {
-                "custom_grid": {
-                  "type": "grid",
-                  "collection_name": "$hotbar_collection_name",
-                  "grid_dimension_binding": "#hotbar_grid_dimensions",
-                  "grid_item_template": "hud.hotbar_hud_item_icon",
-                  "size": [0, 0],
-                  "bindings": [
-                    {
-                      "binding_name": "#hotbar_grid_dimensions",
-                      "binding_type": "global"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
+        "item_icon@new_item_icon": { "layer": 3, "size": [16, 16] }
+      },
+      {
+        "item_count@common.stack_count_label": {
+          "layer": 4,
+          "$item_collection_name": "$hotbar_collection_name",
+          "$stack_count_collection_name": "$hotbar_collection_name",
+          "bindings": [
+            {
+              "binding_name": "#inventory_stack_count",
+              "binding_type": "collection",
+              "binding_collection_name": "$stack_count_collection_name"
+            },
+            {
+              "binding_name": "#stack_count_visible",
+              "binding_name_override": "#visible",
+              "binding_type": "collection",
+              "binding_collection_name": "$stack_count_collection_name"
+            }
+          ]
+        }
+      },
+      { "hotbar_hint@edu_common.hotbar_hint": {} },
+      {
+        "item_dura@item_durability": { "layer": 5 }
+      },
+      {
+        "item_store@item_storage": { "layer": 5 }
+      },
+      {
+        "container_item_lock_overlay@hud.container_item_lock_overlay": {
+          "layer": 6,
+          "size": [16, 16]
+        }
+      }
+    ]
+  },
+  "gui_hotbar_grid_item_pocket/hotbar_parent": {
+    "controls": [
+      {
+        "item_icon@new_item_icon": { "layer": 3, "size": ["80%", "80%"] }
+      },
+      {
+        "item_count@common.stack_count_label": {
+          "layer": 4,
+          "$item_collection_name": "$hotbar_collection_name",
+          "$stack_count_collection_name": "$hotbar_collection_name",
+          "bindings": [
+            {
+              "binding_name": "#inventory_stack_count",
+              "binding_type": "collection",
+              "binding_collection_name": "$stack_count_collection_name"
+            },
+            {
+              "binding_name": "#stack_count_visible",
+              "binding_name_override": "#visible",
+              "binding_type": "collection",
+              "binding_collection_name": "$stack_count_collection_name"
+            }
+          ]
+        }
+      },
+      { "item_dura@item_durability": { "layer": 5 } },
+      { "item_store@item_storage": { "layer": 5 } },
+      {
+        "container_item_lock_overlay@hud.container_item_lock_overlay": {
+          "layer": 6,
+          "size": [16, 16]
         }
       }
     ]
@@ -42,7 +86,7 @@
   "hotbar_slot_selected_image": {
     "controls": [
       {
-        "hotbar_hud_item_icon@hotbar_hud_item_icon": {
+        "new_item_icon@new_item_icon": {
           "layer": 4,
           "$main_hand_binding": "(#selectable and (not(#item_id_aux = -1)))",
           "$ignore_enchanted_book_custom_renderer": false,
@@ -52,12 +96,11 @@
     ]
   },
   "gui_hotbar_grid_item/hotbar_parent/item_icon": { "bindings": [] },
-  "hotbar_hud_item_icon": {
+  "new_item_icon": {
     "type": "panel",
     "size": [0, 0],
     "layer": 1,
     "$common_inv": false,
-    "$item_renderer_size|default": [16, 16],
     "$ignore_enchanted_book_custom_renderer|default": true,
     "$item_collection_name": "$hotbar_collection_name",
     "$detect_binding": "#item_text",
@@ -89,12 +132,12 @@
     "controls": [
       {
         "default_item_renderer@common.default_item_renderer": {
-          "size": "$item_renderer_size"
+          "size": [16, 16]
         }
       },
       {
         "enchanted_book_custom_renderer@common.enchanted_book_custom_renderer": {
-          "size": "$item_renderer_size"
+          "size": [16, 16]
         }
       }
     ]

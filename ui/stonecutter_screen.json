@@ -7,6 +7,7 @@
         "item_renderer": {
           "type": "panel",
           "size": [16, 16],
+          "$ignore_enchanted_book_custom_renderer": false,
           "controls": [
             { "default_item_renderer@common.default_item_renderer": {} },
             {
